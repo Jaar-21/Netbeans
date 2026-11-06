@@ -27,30 +27,30 @@
 
 <br/>
 
-[🏷️ Nama Program](#️-nama-program) •
-[📝 Deskripsi Singkat](#-deskripsi-singkat) •
-[🧩 Fitur Utama](#-fitur-utama-program) •
-[🧱 Tech Stack](#-tech-stack-bahasa-database-framework-library) •
-[📐 Perancangan Sistem](#-perancangan-sistem-flowchart-use-case-erd) •
-[📁 Struktur Package](#-struktur-folder--package) •
-[🎯 4 Pilar OOP](#-penjelasan-penerapan-4-pilar-oop-di-dalam-program) •
-[▶️ Cara Penggunaan](#️-cara-penggunaan-program-sertakan-screenshot-gui) •
-[👥 Kontributor](#-kontributor-nama-dan-nim)
+[🏷️ Nama Program](#nama-program) •
+[📝 Deskripsi Singkat](#deskripsi-singkat) •
+[🧩 Fitur Utama](#fitur-utama) •
+[🧱 Tech Stack](#tech-stack) •
+[📐 Perancangan Sistem](#perancangan-sistem) •
+[📁 Struktur Package](#struktur-package) •
+[🎯 4 Pilar OOP](#penerapan-oop) •
+[🚀 Cara Penggunaan](#cara-penggunaan) •
+[👥 Kontributor](#kontributor)
 
 ---
 
 ### 🖥️ Antarmuka Ruang Kerja Sistem
 
-| 🧑‍💼 Ruang Kerja Kasir (Point of Sale) | 👨‍💼 Ruang Kerja Manajer (Decision Support) |
+| 🧑‍💼 Ruang Kerja Kasir | 👨‍💼 Ruang Kerja Manajer |
 |:---:|:---:|
 | <img src="docs/gambar/fitur/home-kasir.png" alt="Ruang Kasir" width="480"/> | <img src="docs/gambar/fitur/home-manajer.png" alt="Ruang Manajer" width="480"/> |
-| *Pencarian cepat barcode, Smart FIFO, auto-promo, & struk thermal* | *Kartu KPI, grafik tren omzet, prioritas batch expired, & export Excel* |
+| *Pencarian cepat barcode, Smart FIFO, auto-promo, dan struk thermal* | *Kartu KPI, grafik tren omzet, prioritas batch expired, dan export Excel* |
 
 </div>
 
 ---
 
-<a id="️-nama-program"></a>
+<a id="nama-program"></a>
 ## 🏷️ Nama Program
 
 <div align="center">
@@ -61,12 +61,13 @@
 **Solusi Perangkat Lunak Desktop Terintegrasi Berbasis Java SE 17, Java Swing, dan MySQL**  
 *Dikembangkan oleh Mahasiswa Program Studi Sistem Informasi • Fakultas Teknik • Universitas Mulawarman (2026)*
 
+`Versi 1.0 (Capstone Release)` • `Arsitektur 5-Layer MVC + DAO Pattern` • `Custom Connection Pool Engine` • `Offline-First Desktop App`
 
 </div>
 
 ---
 
-<a id="-deskripsi-singkat"></a>
+<a id="deskripsi-singkat"></a>
 ## 📝 Deskripsi Singkat
 
 ### 💡 Latar Belakang Masalah
@@ -96,7 +97,7 @@ Masalah Minimarket Konvensional              Solusi Cerdas FlatSmart
 5. **Mitigasi Kerugian Produk Expired**: Algoritma Smart FIFO memastikan barang dengan kedaluwarsa terdekat otomatis terpilih di kasir.
 6. **Integritas Transaksi Tinggi**: Header transaksi, detail item belanja, dan pengurangan stok dieksekusi dalam **satu transaksi SQL atomik** (Anti-gagal sebagian).
 
-### 🎯 Keterkaitan Sustainable Development Goals (SDGs)
+### 🎯 Keterkaitan SDGs
 Proyek perancangan FlatSmart mengacu pada 3 pilar SDGs:
 * **SDGs 8 (Decent Work and Economic Growth)**: Mendorong pertumbuhan ekonomi inklusif dan efisiensi operasional minimarket melalui pengolahan data penjualan riil untuk penentuan strategi omzet dan efisiensi kerja staf.
 * **SDGs 9 (Industry, Innovation, and Infrastructure)**: Membangun infrastruktur digital dan standardisasi sistem informasi minimarket yang terintegrasi, andal, dan siap mendukung inovasi ritel.
@@ -104,7 +105,7 @@ Proyek perancangan FlatSmart mengacu pada 3 pilar SDGs:
 
 ---
 
-<a id="-fitur-utama-program"></a>
+<a id="fitur-utama"></a>
 ## 🧩 Fitur Utama Program
 
 Aplikasi memisahkan hak akses secara ketat (*Role-Based Access Control*) berdasarkan akun login di database:
@@ -131,12 +132,13 @@ Aplikasi memisahkan hak akses secara ketat (*Role-Based Access Control*) berdasa
 
 <br/>
 
-### 🛒 A. Fitur Ruang Kasir (Point of Sale)
+### 🛒 Fitur Ruang Kasir
 
 <details open>
-<summary><b>🔐 1. Autentikasi & Pemisahan Role Login — (Klik untuk Buka / Tutup)</b></summary>
+<summary><b>Fitur Ruang Kasir</b></summary>
 <br/>
 
+#### 1. Autentikasi dan Pemisahan Role Login
 Memverifikasi username dan password pengguna ke tabel `pengguna`. Sesi login tersimpan di `util/Sesi` dan sistem otomatis mengarahkan ke `KasirFrame` atau `ManajerFrame`.
 
 <p align="center">
@@ -144,14 +146,7 @@ Memverifikasi username dan password pengguna ke tabel `pengguna`. Sesi login ter
   <br/><em>Ruang kerja kasir siap transaksi setelah berhasil login</em>
 </p>
 
-</details>
-
-<br/>
-
-<details open>
-<summary><b>🛒 2. Transaksi Cepat & Keranjang Belanja Otomatis — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### 2. Transaksi Cepat dan Keranjang Belanja Otomatis
 Kasir dapat mengetik sebagian barcode atau nama produk. Sistem otomatis mencari produk yang stoknya masih tersedia tanpa perlu menghafal kode barcode.
 
 <p align="center">
@@ -159,24 +154,10 @@ Kasir dapat mengetik sebagian barcode atau nama produk. Sistem otomatis mencari 
   <br/><em>Daftar item belanjaan masuk ke tabel keranjang beserta kalkulasi harga</em>
 </p>
 
-</details>
-
-<br/>
-
-<details open>
-<summary><b>🏷️ 3. Smart FIFO Batch & Potongan Diskon Otomatis — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### 3. Smart FIFO Batch dan Potongan Diskon Otomatis
 Setiap barang yang ditambahkan ke keranjang otomatis mengambil batch stok dengan tanggal kedaluwarsa terdekat yang masih valid. Jika batch tersebut memiliki promo aktif, sistem langsung memotong harga secara otomatis.
 
-</details>
-
-<br/>
-
-<details open>
-<summary><b>💳 4. Pembayaran, Kembalian, & Konfirmasi Sukses Transaksi — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### 4. Pembayaran, Kembalian, dan Konfirmasi Transaksi
 Mendukung pembayaran Tunai, QRIS, dan Kartu Debit. Mengkalkulasi subtotal, potongan diskon, total akhir, uang diterima, dan kembalian secara otomatis. Seluruh proses disimpan dalam 1 Transaksi SQL Atomik (header + detail + pengurangan stok).
 
 <p align="center">
@@ -184,44 +165,23 @@ Mendukung pembayaran Tunai, QRIS, dan Kartu Debit. Mengkalkulasi subtotal, poton
   <br/><em>Dialog input pembayaran dan kalkulasi kembalian otomatis</em>
 </p>
 
-</details>
-
-<br/>
-
-<details open>
-<summary><b>🧾 5. Cetak Struk 40-Kolom (Thermal Printer Ready) — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### 5. Cetak Struk Kasir 40 Kolom
 Menyajikan pratinjau struk berformat monospaced 40 karakter yang kompatibel langsung dengan printer thermal kasir 58mm.
 
 <p align="center">
   <img src="docs/gambar/penggunaan/struk.png" alt="Pratinjau Struk" width="450"/>
-  <br/><em>Pratinjau format cetak struk thermal 40-kolom</em>
+  <br/><em>Pratinjau format cetak struk thermal 40 kolom</em>
 </p>
 
-</details>
-
-<br/>
-
-<details open>
-<summary><b>⚡ 6. Pembayaran Tagihan / PPOB (Pulsa, PLN, PDAM) — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
-Mencatat transaksi pembayaran tagihan eksternal, validasi format ID pelanggan, dan menambahkan biaya admin otomatis (Rp2.500) ke dalam transaksi.
+#### 6. Pembayaran Tagihan PPOB
+Mencatat transaksi pembayaran tagihan eksternal, validasi format ID pelanggan, dan menambahkan biaya admin otomatis Rp2.500 ke dalam transaksi.
 
 <p align="center">
   <img src="docs/gambar/penggunaan/pembayaran-tagihan.png" alt="Pembayaran Tagihan" width="750"/>
   <br/><em>Form pembayaran tagihan pelanggan dengan biaya admin otomatis</em>
 </p>
 
-</details>
-
-<br/>
-
-<details open>
-<summary><b>📜 7. Riwayat Transaksi & Cetak Ulang Struk — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### 7. Riwayat Transaksi dan Cetak Ulang Struk
 Memungkinkan kasir meninjau kembali transaksi, memfilter rentang tanggal atau kata kunci, serta mencetak ulang struk lama jika diminta pembeli.
 
 <p align="center">
@@ -233,12 +193,13 @@ Memungkinkan kasir meninjau kembali transaksi, memfilter rentang tanggal atau ka
 
 ---
 
-### 📊 B. Fitur Ruang Manajer (Decision Support System)
+### 📊 Fitur Ruang Manajer
 
 <details open>
-<summary><b>📦 8. CRUD Produk & Manajemen Batch Stok — (Klik untuk Buka / Tutup)</b></summary>
+<summary><b>Fitur Ruang Manajer</b></summary>
 <br/>
 
+#### 8. Pengelolaan Produk dan Batch Stok
 Manajer dapat menambah, mengedit, dan mencari produk. Penambahan produk baru otomatis membuat batch stok perdana beserta tanggal kedaluwarsanya. Dilengkapi proteksi: produk yang pernah ditransaksikan tidak dapat dihapus demi integritas data keuangan.
 
 <p align="center">
@@ -251,14 +212,7 @@ Manajer dapat menambah, mengedit, dan mencari produk. Penambahan produk baru oto
   <br/><em>Form penambahan produk baru beserta batch stok awal dan tanggal expired</em>
 </p>
 
-</details>
-
-<br/>
-
-<details open>
-<summary><b>🏷️ 9. CRUD Promosi Bertarget Batch — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### 9. Pengelolaan Promosi Bertarget Batch
 Manajer dapat membuat kode promosi (misal: `prm-001`), diskon 1% - 100%, dan mengaitkannya ke batch stok spesifik. Status promosi (`Akan datang`, `Aktif`, `Berakhir`) dihitung dinamis dari tanggal sistem.
 
 <p align="center">
@@ -266,14 +220,7 @@ Manajer dapat membuat kode promosi (misal: `prm-001`), diskon 1% - 100%, dan men
   <br/><em>Form pembuatan promosi diskon yang ditargetkan pada batch produk tertentu</em>
 </p>
 
-</details>
-
-<br/>
-
-<details open>
-<summary><b>🔍 10. Pemantauan Stok Menipis & Batch Kedaluwarsa — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### 10. Pemantauan Stok Menipis dan Kedaluwarsa
 Mengklik baris produk akan membuka rincian nomor batch, kuantitas unit, dan tanggal kedaluwarsa di bawah tabel.
 
 <p align="center">
@@ -281,14 +228,7 @@ Mengklik baris produk akan membuka rincian nomor batch, kuantitas unit, dan tang
   <br/><em>Panel inspeksi batch stok produk terpilih</em>
 </p>
 
-</details>
-
-<br/>
-
-<details open>
-<summary><b>📈 11. Dasbor Analisis KPI & Grafik Tren Omzet Harian — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### 11. Dasbor Analisis KPI dan Grafik Tren Omzet Harian
 Menampilkan ringkasan total omzet, unit terjual, jumlah transaksi, dan diskon. Dilengkapi Grafik Batang Tren Omzet Harian yang digambar langsung di panel Swing (`Graphics2D`) dengan garis rata-rata omzet.
 
 <p align="center">
@@ -296,14 +236,7 @@ Menampilkan ringkasan total omzet, unit terjual, jumlah transaksi, dan diskon. D
   <br/><em>Dasbor visual omzet: kartu metrik KPI dan grafik batang tren harian</em>
 </p>
 
-</details>
-
-<br/>
-
-<details open>
-<summary><b>🎯 12. Rekomendasi Cepat: Jembatan Prioritas ke Promosi — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### 12. Rekomendasi Prioritas Promosi
 Kartu Prioritas Persediaan mendeteksi batch yang mendekati expired. Klik tombol Tinjau diskon batch di Kelola Promosi untuk langsung berpindah ke menu promo dengan ID batch yang telah terpilih otomatis.
 
 <p align="center">
@@ -311,14 +244,7 @@ Kartu Prioritas Persediaan mendeteksi batch yang mendekati expired. Klik tombol 
   <br/><em>Kartu rekomendasi penanganan batch yang mendekati masa kedaluwarsa</em>
 </p>
 
-</details>
-
-<br/>
-
-<details open>
-<summary><b>🔎 13. Drill-Down Riwayat Detail Transaksi Produk — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### 13. Riwayat Detail Transaksi Produk
 Klik-ganda pada baris produk di tabel analisis untuk membuka riwayat transaksi lengkap barang tersebut selama rentang periode yang sedang dianalisis.
 
 <p align="center">
@@ -326,14 +252,7 @@ Klik-ganda pada baris produk di tabel analisis untuk membuka riwayat transaksi l
   <br/><em>Dialog riwayat detail penjualan per transaksi untuk produk terpilih</em>
 </p>
 
-</details>
-
-<br/>
-
-<details open>
-<summary><b>📊 14. Ekspor Laporan Analisis ke Excel (.xlsx) 4-Sheet — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### 14. Ekspor Laporan Analisis ke Excel 4-Sheet
 Menyimpan rekapitulasi data analisis ke berkas Excel resmi (`.xlsx`) yang terbagi dalam 4 Sheet: Ringkasan, Rincian Produk, Tren Harian, dan Detail Transaksi. Generator Excel dibangun murni (`util/ExcelWriter.java`) menggunakan standar Open Packaging Conventions via `java.util.zip` tanpa memerlukan library eksternal berukuran besar seperti Apache POI.
 
 <p align="center">
@@ -345,8 +264,8 @@ Menyimpan rekapitulasi data analisis ke berkas Excel resmi (`.xlsx`) yang terbag
 
 ---
 
-<a id="-tech-stack-bahasa-database-framework-library"></a>
-## 🧱 Tech Stack (Bahasa, Database, Framework, Library)
+<a id="tech-stack"></a>
+## 🧱 Tech Stack
 
 Sistem FlatSmart dibangun menggunakan tumpukan teknologi modern, efisien, dan andal yang dikelompokkan sesuai ketentuan proyek:
 
@@ -395,21 +314,22 @@ Sistem FlatSmart dibangun menggunakan tumpukan teknologi modern, efisien, dan an
 
 ---
 
-<a id="-perancangan-sistem-flowchart-use-case-erd"></a>
-## 📐 Perancangan Sistem (Flowchart, Use Case, ERD)
+<a id="perancangan-sistem"></a>
+## 📐 Perancangan Sistem
 
-Perancangan sistem FlatSmart mengacu langsung pada dokumen resmi **Laporan Project Akhir Praktikum Sistem Basis Data — Program Studi Sistem Informasi Universitas Mulawarman**.
+Perancangan sistem FlatSmart mengacu pada dokumen resmi **Laporan Project Akhir Praktikum Sistem Basis Data — Program Studi Sistem Informasi Universitas Mulawarman**.
 
 ---
 
-### 1. 📊 Flowchart Sistem (Alur Kerja Operasional)
-
-Berikut adalah 5 flowchart sistem FlatSmart yang menggambarkan alur kerja operasional minimarket:
+### 1. 📊 Flowchart Sistem
 
 <details open>
-<summary><b>🔐 A. Flowchart Menu Login — (Klik untuk Buka / Tutup)</b></summary>
+<summary><b>Flowchart Sistem</b></summary>
 <br/>
 
+Berikut adalah 5 diagram alur kerja sistem FlatSmart:
+
+#### A. Flowchart Menu Login
 Menggambarkan proses autentikasi pengguna saat mengakses FlatSmart. Dimulai dengan memeriksa input username dan password. Jika tidak valid, sistem menampilkan pesan bahwa data tidak ditemukan. Jika valid, sistem memeriksa role: akun manajer melakukan sinkronisasi database akun manajer dan menampilkan menu manajer (`ManajerFrame`), sedangkan jika akun adalah kasir, sistem melakukan sinkronisasi database akun kasir dan menampilkan menu kasir (`KasirFrame`).
 
 <p align="center">
@@ -417,17 +337,12 @@ Menggambarkan proses autentikasi pengguna saat mengakses FlatSmart. Dimulai deng
   <br/><em>Alur autentikasi dan validasi role akun pengguna</em>
 </p>
 
-</details>
+---
 
-<br/>
-
-<details open>
-<summary><b>🛒 B. Flowchart Menu Kasir — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### B. Flowchart Menu Kasir
 Menggambarkan fitur yang dapat digunakan pada bagian kasir:
 * **Pembayaran Produk**: Menampilkan transaksi, kasir memasukkan barcode produk, sistem memvalidasi produk dan stok, kasir memasukkan jumlah barang. Sistem menghitung total pembayaran beserta promo yang berlaku. Kasir memilih metode pembayaran dan memasukkan uang diterima. Jika uang cukup, sistem menghitung kembalian, menampilkan struk belanja, dan menyimpan riwayat transaksi.
-* **Pembayaran Tagihan**: Kasir memasukkan jenis tagihan, sistem memvalidasi, kasir memasukkan nomor pelanggan, nominal, dan nama pelanggan. Sistem menghitung total tagihan beserta biaya admin (Rp2.500), memproses pembayaran, menampilkan struk, dan menyimpan riwayat transaksi.
+* **Pembayaran Tagihan**: Kasir memasukkan jenis tagihan, sistem memvalidasi, kasir memasukkan nomor pelanggan, nominal, dan nama pelanggan. Sistem menghitung total tagihan beserta biaya admin Rp2.500, memproses pembayaran, menampilkan struk, dan menyimpan riwayat transaksi.
 * **Riwayat Transaksi**: Kasir dapat melihat daftar riwayat transaksi yang telah dilakukan.
 * **Keluar**: Mengarahkan kasir kembali ke menu login.
 
@@ -436,17 +351,12 @@ Menggambarkan fitur yang dapat digunakan pada bagian kasir:
   <br/><em>Alur operasional kasir untuk penjualan produk dan pembayaran tagihan</em>
 </p>
 
-</details>
+---
 
-<br/>
-
-<details open>
-<summary><b>👨‍💼 C. Flowchart Menu Manajer — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### C. Flowchart Menu Manajer
 Menggambarkan fitur yang dapat digunakan oleh manajer setelah berhasil login:
-* **Kelola Produk & Kelola Promosi**: Mengarahkan ke menu pengelolaan sesuai pilihan.
-* **Analisis Penjualan**: Manajer diminta memasukkan tanggal awal dan tanggal akhir untuk menentukan periode analisis. Sistem memvalidasi tanggal (tanggal akhir tidak boleh lebih awal dari tanggal awal). Jika valid, sistem menghitung total omzet, jumlah produk terjual, dan melakukan klasifikasi produk (`Terlaris`, `Normal`, `Lambat`), lalu menampilkan rincian hasil analisis penjualan.
+* **Kelola Produk dan Kelola Promosi**: Mengarahkan ke menu pengelolaan sesuai pilihan.
+* **Analisis Penjualan**: Manajer diminta memasukkan tanggal awal dan tanggal akhir untuk menentukan periode analisis. Sistem memvalidasi tanggal. Jika valid, sistem menghitung total omzet, jumlah produk terjual, dan melakukan klasifikasi produk (`Terlaris`, `Normal`, `Lambat`), lalu menampilkan rincian hasil analisis penjualan.
 * **Keluar**: Sistem meminta konfirmasi sebelum kembali ke menu login.
 
 <p align="center">
@@ -454,14 +364,9 @@ Menggambarkan fitur yang dapat digunakan oleh manajer setelah berhasil login:
   <br/><em>Alur navigasi manajer dan proses analisis penjualan</em>
 </p>
 
-</details>
+---
 
-<br/>
-
-<details open>
-<summary><b>📦 D. Flowchart Menu Kelola Produk — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### D. Flowchart Menu Kelola Produk
 Menggambarkan proses pemilihan fitur pengelolaan data produk dengan lima pilihan:
 * **Menampilkan Produk**: Menampilkan daftar produk yang tersedia.
 * **Menambah Produk**: Manajer memasukkan barcode, nama produk, harga beli, harga jual, stok, dan tanggal kedaluwarsa. Sistem menyimpan ke database dan menampilkan informasi berhasil.
@@ -474,14 +379,9 @@ Menggambarkan proses pemilihan fitur pengelolaan data produk dengan lima pilihan
   <br/><em>Alur pengelolaan master produk dan batch persediaan</em>
 </p>
 
-</details>
+---
 
-<br/>
-
-<details open>
-<summary><b>🏷️ E. Flowchart Menu Kelola Promosi — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### E. Flowchart Menu Kelola Promosi
 Menggambarkan pilihan menu pengelolaan promosi produk:
 * **Menampilkan Promosi**: Menampilkan daftar promosi yang tersedia.
 * **Menambah Promosi**: Manajer memasukkan nama promosi dan barcode produk. Sistem memeriksa produk. Jika valid, manajer memasukkan persentase diskon serta tanggal mulai dan tanggal selesai promosi. Sistem membuat kode promosi otomatis (`prm-xxx`) lalu menyimpan ke database.
@@ -497,10 +397,10 @@ Menggambarkan pilihan menu pengelolaan promosi produk:
 
 ---
 
-### 2. 👤 Use Case Diagram (Alur Use Case Sistem)
+### 2. 👤 Use Case Diagram
 
 <details open>
-<summary><b>👤 Diagram Use Case & Pembagian Peran Aktor — (Klik untuk Buka / Tutup)</b></summary>
+<summary><b>Use Case Diagram</b></summary>
 <br/>
 
 Menggambarkan peran antara kasir dan manajer dalam menggunakan sistem FlatSmart:
@@ -510,16 +410,16 @@ Menggambarkan peran antara kasir dan manajer dalam menggunakan sistem FlatSmart:
   <br/><em>Diagram alur use case interaksi aktor Kasir dan Manajer</em>
 </p>
 
-#### Penjelasan Peran Aktor Use Case:
+#### Penjelasan Peran Aktor Use Case
 * **Kasir**:
   * Dapat login untuk masuk ke dalam sistem lalu melihat menu kasir yang dapat melakukan pembayaran produk dan pembayaran tagihan.
   * Pada pembayaran produk, kasir mengelola belanja dengan menambah, mengubah, atau menghapus produk yang akan dibeli di keranjang.
   * Kasir memproses pembelian dengan menghitung total bayar, melakukan proses pembayaran berdasarkan metode yang dipilih, menghitung kembalian, menyimpan riwayat transaksi/pembayaran, serta menampilkan dan mencetak struk sebagai bukti transaksi.
-  * Pada pembayaran tagihan, kasir memproses pembayaran tagihan setiap pelanggan sesuai dengan layanan yang tersedia (listrik, air, pulsa, BPJS).
+  * Pada pembayaran tagihan, kasir memproses pembayaran tagihan setiap pelanggan sesuai dengan layanan yang tersedia: listrik, air, pulsa, dan BPJS.
   * Kasir dapat melihat dan menyimpan riwayat transaksi yang telah dilakukan.
 * **Manajer**:
   * Dapat login untuk masuk ke dalam sistem dan mengakses menu manajer.
-  * Mengelola produk dengan melihat, menambah, update/edit, dan menghapus produk.
+  * Mengelola produk dengan melihat, menambah, mengedit, dan menghapus produk.
   * Mengelola promosi dengan melihat promosi yang tersedia, membuat promosi baru sesuai kebutuhan minimarket, dan menghapus promosi.
   * Melakukan analisis penjualan untuk mendapatkan informasi pendukung keputusan: menghitung jumlah produk terjual, menghitung total omzet, melihat rincian produk, dan mengklasifikasikan produk berdasarkan hasil penjualan.
 
@@ -527,22 +427,23 @@ Menggambarkan peran antara kasir dan manajer dalam menggunakan sistem FlatSmart:
 
 ---
 
-### 3. 🗄️ Entity Relationship Diagram (ERD)
+### 3. 🗄️ Entity Relationship Diagram
+
+<details open>
+<summary><b>Entity Relationship Diagram</b></summary>
+<br/>
 
 Perancangan basis data `db_flatsmart` dijelaskan ke dalam 2 model terpisah: **ERD Logical** dan **ERD Relational**.
 
-<details open>
-<summary><b>📐 A. ERD Logical (Model Konseptual) — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### A. ERD Logical
 ERD Logical berfokus pada struktur konseptual data bisnis minimarket, atribut penting tiap entitas, dan hubungan antar entitas sebelum diimplementasikan ke dalam tabel fisik database:
 * **Entitas Pengguna**: Menyimpan informasi pengguna yang mengakses sistem (`username`, `password`, `nama_pengguna`, `role`).
 * **Entitas Produk**: Menyimpan data barang dagangan (`barcode`, `nama`, `harga_beli`, `harga_jual`, `stok`).
 * **Entitas Stok**: Menyimpan data kuantitas persediaan dan tanggal kedaluwarsa (`id_stok`, `stok`, `tanggal_exp`).
 * **Entitas Promosi**: Menyimpan data aturan diskon dan periode masa aktif promosi (`kode_promosi`, `nama`, `diskon`, `tanggal_mulai`, `tanggal_selesai`).
 * **Entitas Transaksi**: Entitas *supertype* yang mencatat transaksi utama (`id_transaksi`, `metode_pembayaran`, `total_bayar`, `uang_diterima`, `kembalian`, `tanggal_transaksi`).
-* **Entitas Transaksi Produk (Subclass)**: Entitas *subtype* khusus transaksi pembelian produk minimarket (`id_transaksi`, `jumlah_item`).
-* **Entitas Transaksi Tagihan (Subclass)**: Entitas *subtype* khusus transaksi pembayaran tagihan (`id_transaksi`, `jenis_tagihan`, `no_pelanggan`, `nama_pelanggan`, `nominal_tagihan`, `provider`).
+* **Entitas Transaksi Produk**: Entitas *subtype* khusus transaksi pembelian produk minimarket (`id_transaksi`, `jumlah_item`).
+* **Entitas Transaksi Tagihan**: Entitas *subtype* khusus transaksi pembayaran tagihan (`id_transaksi`, `jenis_tagihan`, `no_pelanggan`, `nama_pelanggan`, `nominal_tagihan`, `provider`).
 * **Entitas Detail Transaksi**: Menyimpan baris rincian produk yang dibeli pada setiap transaksi (`id_detail_transaksi`, `jumlah`, `harga_satuan`, `subtotal`).
 
 <p align="center">
@@ -550,14 +451,9 @@ ERD Logical berfokus pada struktur konseptual data bisnis minimarket, atribut pe
   <br/><em>Model konseptual basis data FlatSmart (ERD Logical)</em>
 </p>
 
-</details>
+---
 
-<br/>
-
-<details open>
-<summary><b>🔗 B. ERD Relational (Model Fisik Relasional & 9 Aturan ERDish) — (Klik untuk Buka / Tutup)</b></summary>
-<br/>
-
+#### B. ERD Relational
 ERD Relational memetakan tabel fisik pada MySQL lengkap dengan kunci utama (*Primary Key*), kunci tamu (*Foreign Key*), kardinalitas relasi, dan tipe data:
 
 <p align="center">
@@ -565,7 +461,7 @@ ERD Relational memetakan tabel fisik pada MySQL lengkap dengan kunci utama (*Pri
   <br/><em>Model fisik relasional basis data db_flatsmart (ERD Relational)</em>
 </p>
 
-##### Tabel Pembagian Relasi & Kardinalitas:
+##### Tabel Pembagian Relasi dan Kardinalitas
 | No | Pasangan Relasi Entitas | Kardinalitas | Penjelasan Relasi |
 |:---:|---|:---:|---|
 | 1 | **Pengguna & Transaksi** | **One to many (1:N)** | Satu pengguna dapat menangani banyak transaksi, dan setiap transaksi dilakukan oleh satu pengguna saja (kasir yang menangani). |
@@ -578,7 +474,7 @@ ERD Relational memetakan tabel fisik pada MySQL lengkap dengan kunci utama (*Pri
 | 8 | **Promosi & Stok** | **One to many (1:N)** | Satu promosi dapat diterapkan pada banyak batch stok barang. |
 | 9 | **Stok & Detail Transaksi** | **One to many (1:N)** | Satu batch stok dapat dirujuk pada banyak rincian transaksi penjualan. |
 
-##### 9 Aturan ERDish Resmi:
+##### 9 Aturan ERDish Resmi
 1. **ERDish Pengguna dengan Transaksi**:  
    * Setiap pengguna dapat melayani satu atau banyak transaksi.  
    * Setiap transaksi harus dilayani oleh satu dan hanya satu pengguna.
@@ -598,7 +494,7 @@ ERD Relational memetakan tabel fisik pada MySQL lengkap dengan kunci utama (*Pri
    * Setiap transaksi produk harus memiliki satu atau banyak detail transaksi.  
    * Setiap detail transaksi harus dimiliki oleh satu dan hanya satu transaksi produk.
 7. **ERDish Produk dengan Stok**:  
-   * Setiap produk harus memiliki satu atau banyak stok.  
+   * Setiap produk dapat memiliki satu atau banyak stok.  
    * Setiap stok dapat dimiliki satu dan hanya satu produk.
 8. **ERDish Promosi dengan Stok**:  
    * Setiap promosi dapat menerapkan satu atau banyak stok.  
@@ -611,8 +507,8 @@ ERD Relational memetakan tabel fisik pada MySQL lengkap dengan kunci utama (*Pri
 
 ---
 
-<a id="-struktur-folder--package"></a>
-## 📁 Struktur Folder / Package
+<a id="struktur-package"></a>
+## 📁 Struktur Folder dan Package
 
 ```text
 flatsmart/
@@ -656,14 +552,14 @@ flatsmart/
 
 ---
 
-<a id="-penjelasan-penerapan-4-pilar-oop-di-dalam-program"></a>
-## 🎯 Penjelasan Penerapan 4 Pilar OOP di dalam Program
+<a id="penerapan-oop"></a>
+## 🎯 Penjelasan Penerapan 4 Pilar OOP
 
 Proyek FlatSmart dibangun dengan menerapkan **4 Pilar Utama Pemrograman Berorientasi Objek (OOP)** secara menyeluruh untuk menjamin keterbacaan, keamanan data, dan kemudahan pemeliharaan:
 
 <br/>
 
-### 1. 🛡️ Encapsulation (Enkapsulasi)
+### 1. 🛡️ Encapsulation — Enkapsulasi
 Semua atribut dalam kelas model dan konfigurasi diatur dengan hak akses `private`. Akses dan manipulasi nilai hanya dapat dilakukan melalui metode *getter* dan *setter*. Logika perhitungan internal dibungkus rapat di dalam kelasnya tanpa memaparkan data mentah.
 
 Contoh implementasi enkapsulasi pada kelas Model:
@@ -686,7 +582,7 @@ public class Promosi {
 
 ---
 
-### 2. 🧬 Inheritance (Pewarisan)
+### 2. 🧬 Inheritance — Pewarisan
 Mewariskan atribut dan metode umum dari superclass ke subclass untuk mencegah duplikasi kode (*Don't Repeat Yourself*).
 
 Contoh implementasi pewarisan pada Controller:
@@ -722,7 +618,7 @@ public class ProdukController extends BasisController implements CrudController<
 
 ---
 
-### 3. 🎭 Polymorphism (Polimorfisme)
+### 3. 🎭 Polymorphism — Polimorfisme
 Kemampuan suatu objek atau metode untuk memiliki banyak bentuk melalui **Interface Polymorphism**, **Method Overriding**, dan **Functional Interface (Lambdas)**.
 
 Contoh implementasi polimorfisme interface dan functional callback:
@@ -743,7 +639,7 @@ return DatabaseConnection.query(SQL_CARI_BARCODE, ps -> {
 
 ---
 
-### 4. 🧩 Abstraction (Abstraksi)
+### 4. 🧩 Abstraction — Abstraksi
 Menyembunyikan detail implementasi teknis yang rumit dan hanya memperlihatkan antarmuka esensial kepada pengguna kelas.
 
 Contoh kontrak abstraksi dan transaksi atomik:
@@ -774,10 +670,10 @@ public static <T> T transaction(SqlWork<T> work) throws SQLException {
 
 ---
 
-<a id="️-cara-penggunaan-program-sertakan-screenshot-gui"></a>
-## ▶️ Cara Penggunaan Program (Sertakan Screenshot GUI)
+<a id="cara-penggunaan"></a>
+## 🚀 Cara Penggunaan Program
 
-### 1. Persiapan Lingkungan & Instalasi
+### 1. Persiapan Lingkungan dan Instalasi
 
 | Langkah | Instruksi Instalasi | Tampilan / Screenshot |
 |:---:|---|:---:|
@@ -802,7 +698,7 @@ Sistem telah menyediakan akun demo siap pakai yang tersimpan di tabel `pengguna`
 
 ---
 
-### 3. Panduan Alur Kerja Kasir (Front Office)
+### 3. Panduan Alur Kerja Kasir
 
 | No | Tahapan Transaksi | Penjelasan Alur | Screenshot Antarmuka |
 |:---:|---|---|:---:|
@@ -814,7 +710,7 @@ Sistem telah menyediakan akun demo siap pakai yang tersimpan di tabel `pengguna`
 
 ---
 
-### 4. Panduan Alur Kerja Manajer (Back Office)
+### 4. Panduan Alur Kerja Manajer
 
 | No | Tahapan Manajerial | Penjelasan Alur | Screenshot Antarmuka |
 |:---:|---|---|:---:|
@@ -831,8 +727,8 @@ Sistem telah menyediakan akun demo siap pakai yang tersimpan di tabel `pengguna`
 
 ---
 
-<a id="-kontributor-nama-dan-nim"></a>
-## 👥 Kontributor (Nama dan NIM)
+<a id="kontributor"></a>
+## 👥 Kontributor
 
 Proyek ini dikembangkan oleh tim mahasiswa **Program Studi Sistem Informasi, Fakultas Teknik, Universitas Mulawarman (2026)**:
 
